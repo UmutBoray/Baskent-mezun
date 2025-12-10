@@ -1,0 +1,263 @@
+.map-page {
+  padding: 30px 20px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.map-header {
+  max-width: 1400px;
+  margin: 0 auto 30px;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border-radius: 8px;
+}
+
+.map-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 32px;
+}
+
+.map-header p {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.stats {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.stats span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Harita Konteyner */
+.map-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+}
+
+.map-placeholder {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.world-map {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  display: block;
+}
+
+.world-map .city-label {
+  pointer-events: none;
+  user-select: none;
+}
+
+.world-map .alumni-count {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Şehir Detayları Paneli */
+.city-details-panel {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 900px;
+  overflow-y: auto;
+}
+
+.city-details-panel h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+/* Seçili Şehir Bilgisi */
+.selected-city-info {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.selected-city-info h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.detail-row .label {
+  font-weight: 600;
+}
+
+.detail-row .badge {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.selected-city-info .description {
+  margin: 12px 0 12px 0;
+  font-size: 13px;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+.btn-close {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Şehir Listesi */
+.cities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.city-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.city-item:hover {
+  background: #f3f4f6;
+  border-color: #3b82f6;
+}
+
+.city-item.active {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.city-info {
+  flex: 1;
+}
+
+.city-info h4 {
+  margin: 0 0 2px 0;
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.city-info .country {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.alumni-badge {
+  background: #3b82f6;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* API Notu */
+.api-note {
+  max-width: 1400px;
+  margin: 30px auto 0;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  padding: 16px;
+  color: #92400e;
+}
+
+.api-note p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.api-note strong {
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .map-container {
+    grid-template-columns: 1fr;
+  }
+
+  .city-details-panel {
+    max-height: none;
+  }
+
+  .world-map {
+    max-height: 500px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-header {
+    padding: 30px 15px;
+  }
+
+  .map-header h1 {
+    font-size: 24px;
+  }
+
+  .map-placeholder {
+    padding: 10px;
+  }
+
+  .city-details-panel {
+    padding: 15px;
+  }
+}
