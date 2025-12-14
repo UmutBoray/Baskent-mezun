@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   padding: 20px;
 }
 
@@ -31,6 +31,13 @@
 .admin-auth-header {
   text-align: center;
   margin-bottom: 30px;
+}
+
+.admin-auth-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .admin-auth-header h1 {
@@ -77,9 +84,9 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #4A8CBA;
   background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 3px rgba(74, 140, 186, 0.1);
 }
 
 .form-group input:disabled {
@@ -99,7 +106,7 @@
 
 .btn-login {
   padding: 12px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -107,12 +114,12 @@
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(74, 140, 186, 0.3);
 }
 
 .btn-login:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 20px rgba(74, 140, 186, 0.4);
 }
 
 .btn-login:disabled {
@@ -134,7 +141,7 @@
 }
 
 .auth-footer a {
-  color: #667eea;
+  color: #4A8CBA;
   text-decoration: none;
   font-weight: 600;
 }
@@ -170,3 +177,4 @@
     font-size: 24px;
   }
 }
+

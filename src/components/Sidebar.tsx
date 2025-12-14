@@ -21,8 +21,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, setActivePage }) => {
     <aside className="sidebar">
       <div className="sidebar-header">
         <div className="logo">
-          <FaHome size={24} />
-          <span>BM</span>
+          <img src="/images/baskent-logo.png" alt="Başkent Logo" className="logo-img" />
+          <span>BUOBS</span>
         </div>
       </div>
 

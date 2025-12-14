@@ -31,6 +31,7 @@ const AdminAuthPage: React.FC = () => {
     <div className="admin-auth-container">
       <div className="admin-auth-card">
         <div className="admin-auth-header">
+          <img src="/images/baskent-logo.png" alt="Başkent Logo" className="admin-auth-logo" />
           <h1>Admin Paneli</h1>
           <p>Başkent Üniversitesi Yönetim Sistemi</p>
         </div>

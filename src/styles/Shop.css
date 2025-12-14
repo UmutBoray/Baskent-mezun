@@ -1,5 +1,5 @@
 .shop-page {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   min-height: 100vh;
   padding: 40px 20px;
 }
@@ -67,7 +67,7 @@
 .points-value {
   font-size: 28px;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -105,9 +105,9 @@
 
 .filter-btn.active {
   background: white;
-  color: #667eea;
-  border-color: #667eea;
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  color: #4A8CBA;
+  border-color: #4A8CBA;
+  box-shadow: 0 6px 20px rgba(74, 140, 186, 0.3);
 }
 
 /* Shop Grid */
@@ -127,7 +127,7 @@
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   transition: all 0.3s;
-  border-top: 4px solid #667eea;
+  border-top: 4px solid #4A8CBA;
   display: flex;
   flex-direction: column;
 }
@@ -209,7 +209,7 @@
   gap: 4px;
   font-size: 18px;
   font-weight: 700;
-  color: #667eea;
+  color: #4A8CBA;
 }
 
 .price-icon {
@@ -219,7 +219,7 @@
 .buy-btn {
   flex: 1;
   padding: 10px 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -227,12 +227,12 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(74, 140, 186, 0.3);
 }
 
 .buy-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 16px rgba(74, 140, 186, 0.4);
 }
 
 .buy-btn:disabled {
@@ -382,3 +382,4 @@
     font-size: 12px;
   }
 }
+

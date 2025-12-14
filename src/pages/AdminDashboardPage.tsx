@@ -152,6 +152,7 @@ const AdminDashboardPage: React.FC = () => {
       {/* Header */}
       <header className="admin-header">
         <div className="header-left">
+          <img src="/images/baskent-logo.png" alt="Başkent Logo" className="header-logo" />
           <h1>🔐 Admin Paneli</h1>
         </div>
         <div className="header-right">

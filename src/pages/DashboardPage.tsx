@@ -66,6 +66,7 @@ const DashboardPage: React.FC = () => {
       <div className="dashboard-main">
         <header className="dashboard-header">
           <div className="header-left">
+            <img src="/images/baskent-logo.png" alt="Başkent Logo" className="header-logo" />
             <h1>Başkent Mezunları Ağı</h1>
           </div>
           <div className="header-right">

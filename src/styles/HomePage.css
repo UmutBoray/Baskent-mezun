@@ -1,5 +1,5 @@
 .home-page-gamified {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   min-height: 100vh;
   padding: 20px;
   padding-bottom: 40px;
@@ -54,7 +54,7 @@
   align-items: center;
   text-align: center;
   padding: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   color: white;
   border-radius: 12px;
   transition: all 0.3s;
@@ -62,7 +62,7 @@
 
 .stat-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 16px rgba(74, 140, 186, 0.3);
 }
 
 .stat-label {
@@ -127,8 +127,8 @@
 
 .task-card:hover {
   transform: translateY(-4px);
-  border-color: #667eea;
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+  border-color: #4A8CBA;
+  box-shadow: 0 8px 16px rgba(74, 140, 186, 0.2);
 }
 
 .task-card.completed {
@@ -165,7 +165,7 @@
 .task-reward {
   margin: 0;
   font-size: 12px;
-  color: #667eea;
+  color: #4A8CBA;
   font-weight: 700;
 }
 
@@ -217,7 +217,7 @@
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #4A8CBA 0%, #2C5282 100%);
   border-radius: 12px;
   transition: width 0.4s ease;
   display: flex;
@@ -265,7 +265,7 @@
 
 .nav-btn {
   padding: 16px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   color: white;
   border: none;
   border-radius: 12px;
@@ -273,12 +273,12 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(74, 140, 186, 0.3);
 }
 
 .nav-btn:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 20px rgba(74, 140, 186, 0.4);
 }
 
 .nav-btn:active {
@@ -287,13 +287,13 @@
 
 .nav-btn-info {
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4A8CBA 0%, #2C5282 100%);
   color: white;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 700;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(74, 140, 186, 0.3);
   line-height: 1.6;
 }
 
@@ -434,4 +434,5 @@
     height: 20px;
   }
 }
+
 
