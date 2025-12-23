@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from 'leaflet';
-import type { LatLngExpression } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import '../styles/MapPage.css';
+import React, { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
+import type { LatLngExpression, LatLngBoundsExpression } from "leaflet";
+import "leaflet/dist/leaflet.css";
+import "../styles/MapPage.css";
 
+const worldBounds: LatLngBoundsExpression = [
+  [-90, -180],
+  [90, 180],
+];
 const mapCenter: LatLngExpression = [39.9334, 32.8597];
 
 interface CityData {
@@ -17,67 +21,68 @@ interface CityData {
 
 const CITIES_WITH_ALUMNI: CityData[] = [
   {
-    city: 'İstanbul',
-    country: 'Türkiye',
+    city: "İstanbul",
+    country: "Türkiye",
     alumni: 45,
     coordinates: { lat: 41.0082, lng: 28.9784 },
-    description: 'Teknoloji, Finans, Medya',
+    description: "Teknoloji, Finans, Medya",
   },
   {
-    city: 'Ankara',
-    country: 'Türkiye',
+    city: "Ankara",
+    country: "Türkiye",
     alumni: 28,
     coordinates: { lat: 39.9334, lng: 32.8597 },
-    description: 'Kamu, Teknoloji',
+    description: "Kamu, Teknoloji",
   },
   {
-    city: 'İzmir',
-    country: 'Türkiye',
+    city: "İzmir",
+    country: "Türkiye",
     alumni: 15,
     coordinates: { lat: 38.4161, lng: 27.1228 },
-    description: 'Ticaret, İthalatçılık',
+    description: "Ticaret, İthalatçılık",
   },
   {
-    city: 'San Francisco',
-    country: 'USA',
+    city: "San Francisco",
+    country: "USA",
     alumni: 12,
     coordinates: { lat: 37.7749, lng: -122.4194 },
-    description: 'Teknoloji, Startuplar',
+    description: "Teknoloji, Startuplar",
   },
   {
-    city: 'New York',
-    country: 'USA',
+    city: "New York",
+    country: "USA",
     alumni: 18,
     coordinates: { lat: 40.7128, lng: -74.006 },
-    description: 'Finans, Medya',
+    description: "Finans, Medya",
   },
   {
-    city: 'London',
-    country: 'UK',
+    city: "London",
+    country: "UK",
     alumni: 22,
     coordinates: { lat: 51.5074, lng: -0.1278 },
-    description: 'Finans, Danışmanlık',
+    description: "Finans, Danışmanlık",
   },
   {
-    city: 'Berlin',
-    country: 'Almanya',
+    city: "Berlin",
+    country: "Almanya",
     alumni: 14,
     coordinates: { lat: 52.52, lng: 13.405 },
-    description: 'Teknoloji, Startup',
+    description: "Teknoloji, Startup",
   },
   {
-    city: 'Dubai',
-    country: 'BAE',
+    city: "Dubai",
+    country: "BAE",
     alumni: 11,
     coordinates: { lat: 25.2048, lng: 55.2708 },
-    description: 'Finans, İnşaat',
+    description: "Finans, İnşaat",
   },
 ];
 
 const customIcon = new Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -87,7 +92,10 @@ const customIcon = new Icon({
 export const MapPage: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<CityData | null>(null);
 
-  const totalAlumni = CITIES_WITH_ALUMNI.reduce((sum, city) => sum + city.alumni, 0);
+  const totalAlumni = CITIES_WITH_ALUMNI.reduce(
+    (sum, city) => sum + city.alumni,
+    0,
+  );
 
   return (
     <div className="map-page">
@@ -96,7 +104,10 @@ export const MapPage: React.FC = () => {
         <p>Başkent Üniversitesi mezunlarının çalıştığı şehirler</p>
         <div className="stats">
           <span>Toplam Mezun: {totalAlumni}</span>
-          <span>Ülke Sayısı: {new Set(CITIES_WITH_ALUMNI.map(c => c.country)).size}</span>
+          <span>
+            Ülke Sayısı:{" "}
+            {new Set(CITIES_WITH_ALUMNI.map((c) => c.country)).size}
+          </span>
           <span>Şehir Sayısı: {CITIES_WITH_ALUMNI.length}</span>
         </div>
       </div>
@@ -105,33 +116,44 @@ export const MapPage: React.FC = () => {
         <div className="leaflet-map-wrapper">
           <MapContainer
             center={mapCenter}
-            zoom={2}
-            style={{ height: '100%', width: '100%' }}
+            zoom={3}
+            minZoom={2.75}
+            className="leaflet-container"
             scrollWheelZoom={true}
+            maxBounds={worldBounds}
+            maxBoundsViscosity={1.0}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              noWrap={true}
             />
-            {CITIES_WITH_ALUMNI.map(city => {
-              const position: LatLngExpression = [city.coordinates.lat, city.coordinates.lng];
+            {CITIES_WITH_ALUMNI.map((city) => {
+              const position: LatLngExpression = [
+                city.coordinates.lat,
+                city.coordinates.lng,
+              ];
               return (
-              <Marker
-                key={city.city}
-                position={position}
-                icon={customIcon}
-                eventHandlers={{
-                  click: () => setSelectedCity(city),
-                }}
-              >
-                <Popup>
-                  <div className="popup-content">
-                    <h3>{city.city}, {city.country}</h3>
-                    <p><strong>{city.alumni}</strong> mezun</p>
-                    <p>{city.description}</p>
-                  </div>
-                </Popup>
-              </Marker>
+                <Marker
+                  key={city.city}
+                  position={position}
+                  icon={customIcon}
+                  eventHandlers={{
+                    click: () => setSelectedCity(city),
+                  }}
+                >
+                  <Popup>
+                    <div className="popup-content">
+                      <h3>
+                        {city.city}, {city.country}
+                      </h3>
+                      <p>
+                        <strong>{city.alumni}</strong> mezun
+                      </p>
+                      <p>{city.description}</p>
+                    </div>
+                  </Popup>
+                </Marker>
               );
             })}
           </MapContainer>
@@ -142,7 +164,9 @@ export const MapPage: React.FC = () => {
 
           {selectedCity && (
             <div className="selected-city-info">
-              <h3>{selectedCity.city}, {selectedCity.country}</h3>
+              <h3>
+                {selectedCity.city}, {selectedCity.country}
+              </h3>
               <div className="detail-row">
                 <span className="label">Mezun Sayısı:</span>
                 <span className="value badge">{selectedCity.alumni}</span>
@@ -166,11 +190,11 @@ export const MapPage: React.FC = () => {
 
           <div className="cities-list">
             {CITIES_WITH_ALUMNI.sort((a, b) => b.alumni - a.alumni).map(
-              city => (
+              (city) => (
                 <div
                   key={city.city}
                   className={`city-item ${
-                    selectedCity?.city === city.city ? 'active' : ''
+                    selectedCity?.city === city.city ? "active" : ""
                   }`}
                   onClick={() => setSelectedCity(city)}
                 >
@@ -178,11 +202,9 @@ export const MapPage: React.FC = () => {
                     <h4>{city.city}</h4>
                     <p className="country">{city.country}</p>
                   </div>
-                  <div className="alumni-badge">
-                    {city.alumni}
-                  </div>
+                  <div className="alumni-badge">{city.alumni}</div>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
