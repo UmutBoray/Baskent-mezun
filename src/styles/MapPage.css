@@ -100,6 +100,14 @@
   gap: 20px;
 }
 
+.map-placeholder {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
 .leaflet-map-wrapper {
   background: white;
   border-radius: 8px;
@@ -124,6 +132,24 @@
   margin: 4px 0;
   font-size: 13px;
   color: #4b5563;
+}
+
+.world-map {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  display: block;
+}
+
+.world-map .city-label {
+  pointer-events: none;
+  user-select: none;
+}
+
+.world-map .alumni-count {
+  pointer-events: none;
+  user-select: none;
 }
 
 /* Şehir Detayları Paneli */
@@ -255,6 +281,27 @@
   font-weight: 600;
 }
 
+/* API Notu */
+.api-note {
+  max-width: 1400px;
+  margin: 30px auto 0;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  padding: 16px;
+  color: #92400e;
+}
+
+.api-note p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.api-note strong {
+  font-weight: 600;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .map-container {
@@ -265,7 +312,7 @@
     max-height: none;
   }
 
-  .leaflet-map-wrapper {
+  .world-map {
     max-height: 500px;
   }
 
@@ -284,8 +331,11 @@
     font-size: 24px;
   }
 
+  .map-placeholder {
+    padding: 10px;
+  }
+
   .city-details-panel {
     padding: 15px;
   }
 }
-

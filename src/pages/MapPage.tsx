@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
-import type { LatLngExpression, LatLngBoundsExpression } from "leaflet";
+import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styles/MapPage.css";
 
-const worldBounds: LatLngBoundsExpression = [
-  [-90, -180],
-  [90, 180],
-];
 const mapCenter: LatLngExpression = [39.9334, 32.8597];
 
 interface CityData {
@@ -79,9 +75,7 @@ const CITIES_WITH_ALUMNI: CityData[] = [
 ];
 
 const customIcon = new Icon({
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
-  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+  iconUrl: "/images/marker-icon.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -115,17 +109,15 @@ export const MapPage: React.FC = () => {
         <div className="leaflet-map-wrapper">
           <MapContainer
             center={mapCenter}
-            zoom={3}
-            minZoom={2.75}
+            zoom={5}
+            minZoom={3}
             className="leaflet-container"
             scrollWheelZoom={true}
-            maxBounds={worldBounds}
-            maxBoundsViscosity={1.0}
+            worldCopyJump={true}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              noWrap={true}
             />
             {CITIES_WITH_ALUMNI.map((city) => {
               const position: LatLngExpression = [
