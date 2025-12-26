@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../styles/AdminAuth.css';
@@ -9,7 +9,21 @@ const AdminAuthPage: React.FC = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { adminLogin } = useAuth();
+  const { adminLogin, user } = useAuth();
+
+  // User güncellendiğinde kontrol et
+  useEffect(() => {
+    if (user) {
+      if (user.isAdmin) {
+        console.log('✅ Admin detected, redirecting to dashboard');
+        navigate('/admin/dashboard');
+      } else {
+        // Non-admin user ise loading false yap
+        console.log('⚠️ Non-admin user tried to access admin login');
+        setIsLoading(false);
+      }
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,12 +31,13 @@ const AdminAuthPage: React.FC = () => {
     setIsLoading(true);
 
     try {
+      console.log('🔐 Admin login attempt with email:', email);
       await adminLogin(email, password);
-      navigate('/admin/dashboard');
+      console.log('✅ Admin login successful, user should be updated');
+      // User state güncellendiğinde useEffect otomatik navigate edicek
     } catch (err) {
-      setError('Admin giriş başarısız. E-mail veya şifre hatalı.');
-      console.error('Admin login error:', err);
-    } finally {
+      console.error('❌ Admin login error:', err);
+      setError(err instanceof Error ? err.message : 'Admin giriş başarısız. E-mail veya şifre hatalı.');
       setIsLoading(false);
     }
   };

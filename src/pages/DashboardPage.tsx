@@ -35,6 +35,12 @@ const DashboardPage: React.FC = () => {
     return null;
   }
 
+  // Admin ise admin dashboard'a yönlendir
+  if (user.isAdmin) {
+    navigate('/admin/dashboard');
+    return null;
+  }
+
   const handleLogout = () => {
     logout();
     navigate('/');

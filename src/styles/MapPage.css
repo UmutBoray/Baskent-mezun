@@ -4,6 +4,58 @@
   min-height: 100vh;
 }
 
+.error-message {
+  max-width: 1400px;
+  margin: 0 auto 30px;
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 16px;
+  color: #c33;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.error-message p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.error-message button {
+  padding: 8px 16px;
+  background: #c33;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.error-message button:hover {
+  background: #a22;
+}
+
+.loading {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.loading p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}
+
 .map-header {
   max-width: 1400px;
   margin: 0 auto 30px;

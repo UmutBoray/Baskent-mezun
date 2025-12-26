@@ -36,11 +36,22 @@ const AdminDashboardPage: React.FC = () => {
   });
 
   useEffect(() => {
-    if (!user || !user.isAdmin) {
+    console.log('🔍 Admin Dashboard - User object:', user);
+    console.log('🔍 isAdmin value:', user?.isAdmin);
+    
+    if (!user) {
+      console.log('❌ No user, redirecting to admin login');
+      navigate('/admin/login');
+      return;
+    }
+
+    if (!user.isAdmin) {
+      console.log('❌ Not admin, redirecting to user dashboard');
       navigate('/');
       return;
     }
 
+    console.log('✅ Admin access granted');
     // LocalStorage'dan duyuruları ve logları yükle
     const storedAnnouncements = JSON.parse(localStorage.getItem('announcements') || '[]');
     const storedLogs = JSON.parse(localStorage.getItem('systemLogs') || '[]');

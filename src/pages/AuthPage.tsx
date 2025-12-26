@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const AuthPage: React.FC = () => {
+  console.log('AuthPage component rendering...');
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,8 +31,16 @@ const AuthPage: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const { login, register } = useAuth();
+  const { login, register, user } = useAuth();
   const navigate = useNavigate();
+
+  // Admin ise admin login'e yönlendir
+  useEffect(() => {
+    if (user && user.isAdmin) {
+      console.log('👤 Admin detected in user login page, redirecting to admin');
+      navigate('/admin');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
